@@ -1,0 +1,5 @@
+3.13.12 | packaged by conda-forge | (main, Feb  5 2026, 05:53:46) [GCC 14.3.0]
+torch 2.14.0+cu130 cuda 13.0
+numpy 2.5.3 pandas 3.0.6 scipy 1.18.1
+NVIDIA GeForce RTX 5070 Ti, 595.84
+vsearch v2.31.0_linux_x86_64, 60.5GB RAM, 32 cores
