@@ -7,7 +7,7 @@ Code, deviation log and manuscript for:
 
 The paper is an evaluation protocol with a purpose-trained ITS encoder as its
 worked example. Everything needed to rerun the corrected evaluation and rebuild
-every table and figure is here; large artefacts are in a separate data deposit.
+every table and figure is here; large artefacts are in a separate data deposit on Zenodo (doi:10.5281/zenodo.22940616).
 
 ## Layout
 
