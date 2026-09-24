@@ -1,0 +1,21 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{The coverage filter changes placement and leaves novelty ranking untouched. Identity on TEST under exhaustive search, with and without query coverage $\geq0.8$.}
+\label{tab:config}
+\small
+\begin{tabular}{llccc}
+\toprule
+view & configuration & AUROC & known genus NN & novel family \\
+\midrule
+ITS-core & exhaustive, no coverage filter & 0.7339 & 76.8\% & 53.7\% \\
+ & exhaustive, query coverage 0.8 & 0.7338 & 83.4\% & 84.6\% \\
+\addlinespace
+ITS1 & exhaustive, no coverage filter & 0.7016 & 80.4\% & 80.4\% \\
+ & exhaustive, query coverage 0.8 & 0.6997 & 80.9\% & 81.6\% \\
+\addlinespace
+ITS2 & exhaustive, no coverage filter & 0.7352 & 78.8\% & 76.2\% \\
+ & exhaustive, query coverage 0.8 & 0.7349 & 80.8\% & 80.0\% \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}

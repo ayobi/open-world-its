@@ -1,0 +1,4 @@
+view,auroc,known_genus,novel_family,novel_order,n_known,n_novel
+core,0.8087,0.807,0.758,0.931,1515,8659
+its1,0.8063,0.8,0.708,0.889,1527,8682
+its2,0.7784,0.783,0.693,0.921,1515,8642

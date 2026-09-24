@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying article."
+title: "A learned fungal ITS embedding does not outperform correctly configured alignment in open-world evaluation"
+authors:
+  - family-names: "O'Brien"
+    given-names: "Aaron"
+    affiliation: "Centro de Biotecnología de Sistemas, Universidad Andrés Bello"
+  - family-names: "Gardette"
+    given-names: "Auguste"
+    affiliation: "IRD, Sorbonne University, UMMISCO"
+version: "1.0.0"
+license: MIT

@@ -1,0 +1,6 @@
+comparison,mean_abs,max_abs,signed,note
+sealed evaluator vs second scoring script (all ITS-core),0.0054,0.1153,,"6,683 of 10,679 queries differ by >1e-3"
+batch 64 vs batch 256 (TEST_KNOWN ITS-core),0.0045,0.0801,,
+batch 1 vs batch 64 (TEST_KNOWN ITS-core),0.022,0.1456,-0.011,padded minus unpadded
+batch 1 vs batch 256 (TEST_KNOWN ITS-core),0.0226,0.1511,,
+sealed evaluator vs batch 1 (TEST_KNOWN ITS-core),0.0226,,-0.0104,sealed minus unpadded

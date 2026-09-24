@@ -1,0 +1,7 @@
+view,config,auroc,known_genus,novel_family
+core,"exhaustive, no coverage filter",0.7339,0.768,0.537
+core,"exhaustive, query coverage 0.8",0.7338,0.834,0.846
+its1,"exhaustive, no coverage filter",0.7016,0.804,0.804
+its1,"exhaustive, query coverage 0.8",0.6997,0.809,0.816
+its2,"exhaustive, no coverage filter",0.7352,0.788,0.762
+its2,"exhaustive, query coverage 0.8",0.7349,0.808,0.8

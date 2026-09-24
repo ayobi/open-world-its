@@ -1,0 +1,27 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Controlled model ladder. Each step adds exactly one scientific ingredient
+to the step before it; M4 is the combination that was frozen. M0 was rerun at batch
+size 96 so that every comparison shown here shares the same source-record batch size
+and eight-epoch update budget.}
+\label{tab:objectives}
+\begin{tabular}{llccc}
+\toprule
+model & training objective added & $\lambda_{\mathrm{view}}$ & $\lambda_{\mathrm{tax}}$ & $\lambda_{\mathrm{epi}}$ \\
+\midrule
+M0 & genus proxy on ITS-core only (Eq.~\ref{eq:proxy}) & --- & --- & --- \\
+M1 & \quad + cross-view invariance, core$\leftrightarrow$ITS1/ITS2 (Eq.~\ref{eq:view}) & 1.0 & --- & --- \\
+M2 & \quad + hierarchical taxonomic geometry (Eq.~\ref{eq:tax}) & 1.0 & 1.0 & --- \\
+M3 & \quad + leave-one-genus family episodes (Eq.~\ref{eq:epi}) & 1.0 & --- & 0.5 \\
+M4 & \quad + both structured objectives & 1.0 & 1.0 & 0.5 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item All models share the same convolutional encoder and 256-dimensional
+L2-normalized output. View, taxonomy and episode temperatures were all $0.10$;
+the hierarchical decay was $\beta=0.70$; seed 17; eight epochs; batch size 96.
+\item M2 and M3 are both built on M1, so the M2/M3 contrast isolates hierarchical
+geometry against pseudo-novel episodes at equal view supervision.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

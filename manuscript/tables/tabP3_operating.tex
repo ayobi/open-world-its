@@ -1,0 +1,32 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Conformal operating points on TEST for corrected M4 and identity, each calibrated on its own CAL\_KNOWN scores by the same procedure. False novelty is the fraction of TEST\_KNOWN flagged; detection the fraction of TEST\_NOVEL flagged.}
+\label{tab:operating}
+\small
+\begin{tabular}{llcccc}
+\toprule
+ & & \multicolumn{2}{c}{M4, corrected} & \multicolumn{2}{c}{percent identity} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+view & $\alpha$ & false novelty & detection & false novelty & detection \\
+\midrule
+ITS-core & 0.01 & 0.2\% & \textbf{0.7\%} & 0.5\% & 0.3\% \\
+ & 0.05 & 3.7\% & 6.0\% & 3.2\% & \textbf{14.6\%} \\
+ & 0.10 & 8.4\% & 18.4\% & 7.2\% & \textbf{30.9\%} \\
+ & 0.20 & 17.6\% & \textbf{45.3\%} & 16.4\% & 45.2\% \\
+\addlinespace
+ITS1 & 0.01 & 0.4\% & \textbf{0.8\%} & 0.0\% & 0.0\% \\
+ & 0.05 & 4.9\% & 5.5\% & 4.0\% & \textbf{8.4\%} \\
+ & 0.10 & 8.7\% & 12.3\% & 7.4\% & \textbf{24.8\%} \\
+ & 0.20 & 18.1\% & 30.6\% & 16.9\% & \textbf{45.4\%} \\
+\addlinespace
+ITS2 & 0.01 & 0.8\% & \textbf{1.2\%} & 0.5\% & 1.1\% \\
+ & 0.05 & 4.3\% & 9.6\% & 3.3\% & \textbf{15.0\%} \\
+ & 0.10 & 8.6\% & 21.4\% & 7.6\% & \textbf{31.0\%} \\
+ & 0.20 & 17.5\% & 41.1\% & 17.2\% & \textbf{44.9\%} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Higher detection per row in bold. At $\alpha\in\{0.05,0.10\}$ identity detects more novel queries at a lower observed false-novelty rate at every view. At $\alpha=0.01$ both scores detect almost nothing, and ITS1 identity flags no query at all.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

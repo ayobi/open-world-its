@@ -1,0 +1,16 @@
+item,value
+Original TRAIN_REF records,46453
+Leakage-safe TRAIN_REF records,41344
+Excluded records,5109
+Historical LGO queries,4444
+Historical LGO query genera,538
+LGO exact query IDs in original TRAIN_REF,3166
+LGO query genera in original TRAIN_REF,458
+LGO query genera remaining after mask,0
+LGO exact query IDs remaining after mask,0
+Historical LSO queries,3264
+Historical LSO query species,2541
+LSO exact query IDs in original TRAIN_REF,2107
+LSO query species in original TRAIN_REF,1694
+LSO query species remaining after mask,0
+LSO query genera still represented after mask,1887

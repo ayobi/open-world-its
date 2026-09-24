@@ -1,0 +1,23 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Frozen M4 on the untouched TEST partitions. CAL\_KNOWN was used only for conformal calibration; no DEV sequence was embedded or scored during this evaluation.}
+\label{tab:final}
+\small
+\begin{tabular}{lccccccc}
+\toprule
+ & & & known & \multicolumn{3}{c}{novel-genus placement} & \\
+\cmidrule(lr){5-7}
+view & AUROC & 95\% CI & genus NN & family & order & class & $n$ known / novel \\
+\midrule
+ITS-core & 0.754 & 0.739--0.770 & 71.1\% & 65.0\% & 92.2\% & 97.3\% & 1,467 / 7,718 \\
+ITS1 & 0.716 & 0.699--0.734 & 64.5\% & 55.2\% & 85.9\% & 94.0\% & 1,477 / 7,702 \\
+ITS2 & 0.763 & 0.748--0.779 & 65.3\% & 52.0\% & 81.1\% & 92.9\% & 1,463 / 7,671 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Intervals are stratified bootstrap percentile intervals over queries (2,000 resamples, seed 17).
+\item Development AUROCs for the same model were 0.777 (ITS-core), 0.740 (ITS1), 0.754 (ITS2). The ITS-core and ITS1 development values lie above their TEST intervals and the ITS2 value lies inside its own, so selection optimism of roughly 0.02 and 0.04 AUROC is present at two of the three views.
+\item Novel-genus placement moves the other way: TEST family placement exceeds the development value at every view (by 7.4, 6.5 and 10.8 percentage points). Because the two effects disagree in sign on one frozen checkpoint, they are most economically read as a composition difference between DEV\_NOVEL and TEST\_NOVEL rather than as generalization behaviour.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

@@ -1,0 +1,35 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Historical-benchmark leakage audit and exclusion mask. The share column expresses each count as a percentage of the corresponding held-out set.}
+\label{tab:leakage}
+\begin{tabular}{lrr}
+\toprule
+item & count & share of held-out set \\
+\midrule
+\multicolumn{3}{l}{\emph{Training records}} \\
+\quad original TRAIN\_REF & 46,453 & \\
+\quad leakage-safe TRAIN\_REF & 41,344 & \\
+\quad excluded by the mask & 5,109 & \\
+\addlinespace
+\multicolumn{3}{l}{\emph{Leave-one-genus-out (LGO) queries}} \\
+\quad queries & 4,444 & \\
+\quad query genera & 538 & \\
+\quad exact query IDs in original TRAIN\_REF & 3,166 & 71.2\% \\
+\quad query genera in original TRAIN\_REF & 458 & 85.1\% \\
+\quad query genera after the mask & 0 & 0.0\% \\
+\quad exact query IDs after the mask & 0 & 0.0\% \\
+\addlinespace
+\multicolumn{3}{l}{\emph{Leave-one-species-out (LSO) queries}} \\
+\quad queries & 3,264 & \\
+\quad query species & 2,541 & \\
+\quad exact query IDs in original TRAIN\_REF & 2,107 & 64.6\% \\
+\quad query species in original TRAIN\_REF & 1,694 & 66.7\% \\
+\quad query species after the mask & 0 & 0.0\% \\
+\quad query genera still represented after the mask & 1,887 & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item The LSO design deliberately keeps the query's genus in the reference collection, so the last row is a property of the design rather than residual leakage. What the mask had to remove was the query species itself.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

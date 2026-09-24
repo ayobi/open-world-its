@@ -1,0 +1,22 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Sensitivity of the hierarchical objective to its weight. The reduced $\lambda_{\mathrm{tax}}=0.25$ run was performed once after the initially specified $\lambda_{\mathrm{tax}}=1.0$ run and was not followed by a weight sweep.}
+\label{tab:m2sens}
+\begin{tabular}{llccc}
+\toprule
+$\lambda_{\mathrm{tax}}$ & view & AUROC & novel family & novel order \\
+\midrule
+1.00 & ITS-core & 0.752 & 35.8\% & 60.8\% \\
+ & ITS1 & 0.740 & 32.7\% & 56.9\% \\
+ & ITS2 & 0.740 & 31.5\% & 56.9\% \\
+\addlinespace
+0.25 & ITS-core & 0.748 & 33.6\% & 58.7\% \\
+ & ITS1 & 0.736 & 28.8\% & 52.2\% \\
+ & ITS2 & 0.723 & 29.7\% & 53.8\% \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Reducing the weight to one quarter lowered AUROC and every placement metric at every view. The sensitivity run therefore did not motivate further DEV-set weight tuning.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

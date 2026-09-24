@@ -1,0 +1,35 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{How the alignment baseline depends on its configuration. (a) Default termination heuristics against an exhaustive search on the historical ITS2 benchmark. (b) Query-coverage filtering on TEST\_NOVEL: the ITS-core rows sweep the threshold and the spacer rows are the control, since ITS1 and ITS2 contain no conserved region.}
+\label{tab:baseline}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+\multicolumn{6}{l}{\emph{(a) Default heuristics against exhaustive search, historical ITS2}} \\
+query set & with a hit & lower-identity hit & target changed & rescued & mean gain \\
+\midrule
+LGO (novel genus) & 3,902 & 2,344 (60.1\%) & 2,419 (62.0\%) & 5 & $+2.93$ pp \\
+LSO (known genus) & 3,243 & 1,108 (34.2\%) & 1,203 (37.1\%) & 0 & $+1.30$ pp \\
+\midrule
+\multicolumn{6}{l}{\emph{(b) Novel-genus placement by query-coverage filter, TEST}} \\
+view & coverage filter & family & order & class & \\
+\midrule
+ITS-core & none & 53.7\% & 61.5\% & 64.9\% & \\
+ & 0.5 & 73.1\% & 94.5\% & 96.3\% & \\
+ & 0.7 & 81.2\% & 96.6\% & 98.4\% & \\
+ & 0.8 & 84.6\% & 97.0\% & 98.6\% & \\
+ & 0.9 & 85.8\% & 97.0\% & 98.7\% & \\
+\addlinespace
+ITS1 & none & 80.4\% & 94.4\% & 96.5\% & \\
+ & 0.8 & 81.6\% & 94.4\% & 96.5\% & \\
+\addlinespace
+ITS2 & none & 76.2\% & 95.3\% & 97.6\% & \\
+ & 0.8 & 80.0\% & 95.6\% & 97.5\% & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item In (b), 44.5\% of ITS-core best hits changed between no filter and coverage $0.8$, with a mean identity change of $-2.53$ points: without the filter the search preferred higher-identity partial alignments that were taxonomically wrong. Identity AUROC was unchanged by the filter to three decimals at every view (Table~\ref{tab:config}). In (a), a lower-identity hit is one an exhaustive search improved on; a changed target also counts swaps among exact ties. Panel (b) is an independent search run: because multithreaded VSEARCH does not resolve exact ties deterministically, its $0.8$ row can differ from Table~\ref{tab:headtohead} by up to $0.1$ point.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

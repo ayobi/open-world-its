@@ -1,0 +1,21 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Cross-view retrieval through the ITS-core references on DEV. Spacer queries searched against ITS-core references, by exhaustive VSEARCH (query coverage $\geq0.8$) and by M4 cosine. Because ITS-core contains both spacers, this is a homologous comparison that alignment can make directly.}
+\label{tab:crossview}
+\small
+\begin{tabular}{llccc}
+\toprule
+query view & score & AUROC & known genus NN & novel family \\
+\midrule
+ITS1 & percent identity & \textbf{0.801} & \textbf{79.8\%} & \textbf{70.9\%} \\
+ & M4 cosine & 0.581 & 32.9\% & 30.0\% \\
+\addlinespace
+ITS2 & percent identity & \textbf{0.779} & \textbf{78.5\%} & \textbf{69.8\%} \\
+ & M4 cosine & 0.616 & 24.2\% & 20.6\% \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item M4 values use exact-length inference; under the sealed, padded inference they were about 12 points higher in genus accuracy and 8 to 9 in family placement (Section~\ref{sec:invariance}). M4 was selected on DEV, so these cells if anything flatter it. Direct ITS1-to-ITS2 retrieval, the only genuinely non-homologous pair, has M4 AUROC $0.490$ and $0.471$ (Table~\ref{tab:m4matrix}).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

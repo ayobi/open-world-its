@@ -1,0 +1,29 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Paired uncertainty for corrected M4 against identity on TEST, M4 minus identity. The query-level DeLong interval treats queries as independent; the genus-cluster bootstrap resamples whole genera separately within the known and novel classes, applies identical weights to both scores, and uses 10,000 replicates.}
+\label{tab:uncertainty}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+\multicolumn{6}{l}{\emph{(a) Novelty AUROC}} \\
+view & $\Delta$AUROC & DeLong 95\% CI & $P$ & genus 95\% CI & Bonferroni, 3 views \\
+\midrule
+ITS-core & $+0.022$ & $+0.012$ to $+0.033$ & $4.1\times10^{-5}$ & $-0.069$ to $+0.104$ & $-0.073$ to $+0.115$ \\
+ITS1 & $-0.001$ & $-0.014$ to $+0.012$ & $0.878$ & $-0.116$ to $+0.097$ & $-0.124$ to $+0.112$ \\
+ITS2 & $+0.005$ & $-0.005$ to $+0.015$ & $0.357$ & $-0.069$ to $+0.068$ & $-0.074$ to $+0.076$ \\
+\midrule
+\multicolumn{6}{l}{\emph{(b) Novel detection at nominal $\alpha=0.05$}} \\
+view & M4 & identity & $\Delta$, pp & genus 95\% CI & false novelty, M4 / identity \\
+\midrule
+ITS-core & 6.0\% & 14.6\% & $-8.7$ & $-19.7$ to $+0.2$ & 3.7\% / 3.2\% \\
+ITS1 & 5.5\% & 8.4\% & $-2.9$ & $-9.5$ to $-0.1$ & 4.9\% / 4.0\% \\
+ITS2 & 9.6\% & 14.9\% & $-5.3$ & $-13.5$ to $+1.3$ & 4.3\% / 3.4\% \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Novel genera per view: ITS-core 183, ITS1 184, ITS2 183. Point estimates are query-weighted; the genus-cluster interval is for a genus-resampled version of that statistic. Rate intervals hold the CAL\_KNOWN scores fixed, so they omit calibration-set sampling variability and understate total uncertainty.
+\item An interval that includes zero means no demonstrated advantage, not equivalence.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

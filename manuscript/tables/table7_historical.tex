@@ -1,0 +1,29 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Leakage-controlled historical ITS2 benchmark. Percent identity and leakage-safe M4 cosine are scored on identical queries, identical reference collections and an identical conformal procedure, so the comparison is paired throughout. Higher is better except for false novelty, where the target is the nominal $\alpha$.}
+\label{tab:historical}
+\begin{tabular}{lccc}
+\toprule
+metric & percent identity & M4 cosine & difference \\
+\midrule
+AUROC & \textbf{0.768} & 0.703 & +0.065 \\
+novel detected, $\alpha=0.01$ & \textbf{14.9\%} & 2.4\% & +12.5 pp \\
+novel detected, $\alpha=0.05$ & \textbf{28.1\%} & 11.2\% & +17.0 pp \\
+novel detected, $\alpha=0.10$ & \textbf{38.5\%} & 20.9\% & +17.6 pp \\
+novel detected, $\alpha=0.20$ & \textbf{54.0\%} & 41.0\% & +13.0 pp \\
+false novelty, $\alpha=0.05$ & 4.3\% & 3.9\% & +0.4 pp \\
+\addlinespace
+family recovery, known species (LSO) & \textbf{91.4\%} & 72.2\% & +19.2 pp \\
+family recovery, novel genus (LGO) & \textbf{52.6\%} & 28.2\% & +24.4 pp \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item $n=1{,}632$ calibration knowns, $1{,}632$ test knowns and 4,444 novel-genus queries, identical for both scores.
+\item The AUROC difference is $+0.065$ (95\% CI $+0.046$ to $+0.085$, 10{,}000 paired bootstrap resamples clustered on query genus in both classes). The DeLong test on the same contrast gives $z=11.9$, $p<10^{-16}$; it assumes within-class independence, which the LGO design violates, so the clustered interval is the one to read. Clustering widens the interval by $1.8\times$. McNemar on the $\alpha=0.05$ flag sets separates power from calibration: among novel queries, 872 were flagged by identity alone against 117 by cosine alone ($p<10^{-16}$), while the observed false-novelty rates differ by $0.4$ percentage points.
+\item 619 of the 4,444 LGO queries (13.9\%) returned no VSEARCH hit at identity $\geq0.5$ and query coverage $\geq0.8$ and carry the censoring value, against 542 under the default-settings search. All are flagged at $\alpha=0.05$: of the 1,251 novel queries identity flags there, 619 (49\%) are censored rather than scored, so about half of identity's detections on this benchmark are queries with no alignable reference.
+\item The M4 cosine column comes from the leakage-safe retraining, fitted to 11\% fewer records and 483 fewer genera than primary M4. DEV was not reopened for that run, so the cost of the mask to model quality is unmeasured.
+\item The calibration and test halves of the LSO set are drawn by \texttt{np.random.default\_rng(0).permutation}. Across ten halvings (seeds 0 to 9) the identity advantage ranged from $+0.063$ to $+0.075$ AUROC and every genus-clustered interval excluded zero; seed 0, reported here, lies near the low end. The operating points should therefore be read as approximate.
+\item The currently deposited splitter yields 3,264 LSO queries rather than the 3,170 of the earlier novelty manuscript; the LGO count reproduces exactly. These results are therefore a paired comparison on the currently reproducible harness, not a numerical reproduction of the earlier LSO run.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

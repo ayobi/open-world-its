@@ -1,0 +1,30 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Primary TEST evaluation: M4 against a matched alignment baseline on identical queries and references. The sealed row is the locked evaluation as run, with padded inference; the corrected row recomputes the same checkpoint with exact-length batching. Identity is exhaustive VSEARCH with query coverage $\geq0.8$. Best value per view and column in bold.}
+\label{tab:headtohead}
+\small
+\begin{tabular}{llccccc}
+\toprule
+ & & & known & \multicolumn{3}{c}{novel-genus placement} \\
+\cmidrule(l){5-7}
+view & score & AUROC & genus NN & family & order & class \\
+\midrule
+ITS-core & M4, sealed (padded) & 0.754 & 71.1\% & 65.0\% & 92.2\% & 97.3\% \\
+ & M4, corrected & \textbf{0.756} & 71.2\% & 64.8\% & 92.5\% & 97.1\% \\
+ & percent identity & 0.734 & \textbf{83.4\%} & \textbf{84.6\%} & \textbf{97.0\%} & \textbf{98.7\%} \\
+\addlinespace
+ITS1 & M4, sealed (padded) & \textbf{0.716} & 64.5\% & 55.2\% & 85.9\% & 94.0\% \\
+ & M4, corrected & 0.699 & 61.6\% & 54.3\% & 84.4\% & 93.3\% \\
+ & percent identity & 0.700 & \textbf{80.9\%} & \textbf{81.6\%} & \textbf{94.4\%} & \textbf{96.5\%} \\
+\addlinespace
+ITS2 & M4, sealed (padded) & \textbf{0.763} & 65.3\% & 52.0\% & 81.1\% & 92.9\% \\
+ & M4, corrected & 0.740 & 66.2\% & 53.8\% & 81.7\% & 93.2\% \\
+ & percent identity & 0.735 & \textbf{80.8\%} & \textbf{80.0\%} & \textbf{95.6\%} & \textbf{97.5\%} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item $n$ known / novel: ITS-core 1,467/7,718; ITS1 1,477/7,702; ITS2 1,463/7,671. Identity censors queries with no hit at identity $\geq0.5$ and coverage $\geq0.8$ at $49.999$ and counts them as placement failures: ITS-core 0 known, 0 novel; ITS1 26 known, 118 novel; ITS2 7 known, 78 novel.
+\item Paired uncertainty for the AUROC and detection contrasts is in Table~\ref{tab:uncertainty}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

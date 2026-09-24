@@ -1,5 +1,9 @@
-runs/
-data/
+/runs/
+/data/
 *.pt
 .venv/
 __pycache__/
+*.aux
+*.log
+*.out
+manuscript/main.pdf

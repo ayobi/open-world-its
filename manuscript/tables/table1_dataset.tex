@@ -1,0 +1,35 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Source collection and open-world partitioning. \emph{Records} counts source records after taxonomic filtering; the three right-hand columns give how many of those records carry each barcode view and are therefore the denominators for the per-view results in Tables~\ref{tab:headtohead}--\ref{tab:operating}.}
+\label{tab:dataset}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrrr}
+\toprule
+ & & \multicolumn{3}{c}{records carrying the view} \\
+\cmidrule(l){3-5}
+item & records & ITS-core & ITS1 & ITS2 \\
+\midrule
+\multicolumn{5}{l}{\emph{Source collection}} \\
+\quad UNITE dynamic release (19 Feb 2025) & 102,137 & --- & --- & --- \\
+\quad historical ITS2 pool & 99,808 & --- & --- & --- \\
+\quad fresh ITS2 extraction & 99,862 & --- & --- & --- \\
+\quad named family and genus & 67,406 & --- & --- & --- \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Open-world partitions}} \\
+\quad TRAIN\_REF & 46,453 & 46,151 & 46,342 & 46,076 \\
+\quad DEV\_KNOWN & 1,528 & 1,515 & 1,527 & 1,515 \\
+\quad DEV\_NOVEL & 8,698 & 8,659 & 8,682 & 8,642 \\
+\quad CAL\_KNOWN & 1,505 & 1,494 & 1,501 & 1,493 \\
+\quad TEST\_KNOWN & 1,484 & 1,467 & 1,477 & 1,463 \\
+\quad TEST\_NOVEL & 7,738 & 7,718 & 7,702 & 7,671 \\
+\addlinespace
+\quad total partitioned & 67,406 & & & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Exact cross-genus sequence conflicts were masked at the level of the individual view rather than by deleting the source record: 393 ITS1 and 338 ITS2 views across 301 conflict groups. No ITS-core conflict was detected.
+\item The six partitions sum exactly to the named-family-and-genus total.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

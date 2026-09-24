@@ -101,7 +101,7 @@ def table1():
         "\\emph{Records} counts source records after taxonomic filtering; the three "
         "right-hand columns give how many of those records carry each barcode view "
         "and are therefore the denominators for the per-view results in "
-        "Tables~\\ref{tab:ablation}--\\ref{tab:conformal}.}",
+        "Tables~\\ref{tab:headtohead}--\\ref{tab:operating}.}",
         "\\label{tab:dataset}",
         "\\small",
         "\\setlength{\\tabcolsep}{5pt}",
@@ -410,28 +410,30 @@ def table7():
         "\\begin{tablenotes}\\footnotesize",
         f"\\item $n=1{{,}}632$ calibration knowns, $1{{,}}632$ test knowns and "
         f"{num(audit['Historical LGO queries'])} novel-genus queries, identical for both scores.",
-        "\\item The AUROC difference is $+0.069$ (95\\% CI $+0.049$ to $+0.089$, "
+        "\\item The AUROC difference is $+0.065$ (95\\% CI $+0.046$ to $+0.085$, "
         "10{,}000 paired bootstrap resamples clustered on query genus in both "
-        "classes). The DeLong test on the same contrast gives $z=12.4$, "
+        "classes). The DeLong test on the same contrast gives $z=11.9$, "
         "$p<10^{-16}$; it assumes within-class independence, which the LGO design "
         "violates, so the clustered interval is the one to read. Clustering widens "
-        "the interval by $1.9\\times$. McNemar on the $\\alpha=0.05$ flag sets "
-        "separates power from calibration: among novel queries, 969 were flagged by "
-        "identity alone against 115 by cosine alone ($p<10^{-16}$), while the "
-        "observed false-novelty rates differ by $0.6$ percentage points.",
-        "\\item 542 of the 4,444 LGO queries (12.2\\%) returned no VSEARCH hit at "
-        "the 0.5 identity threshold and carry the censoring value. They are flagged "
-        "at every $\\alpha$: of the 1,235 novel queries identity flags at "
-        "$\\alpha=0.05$, 542 (44\\%) are censored rather than scored.",
+        "the interval by $1.8\\times$. McNemar on the $\\alpha=0.05$ flag sets "
+        "separates power from calibration: among novel queries, 872 were flagged by "
+        "identity alone against 117 by cosine alone ($p<10^{-16}$), while the "
+        "observed false-novelty rates differ by $0.4$ percentage points.",
+        "\\item 619 of the 4,444 LGO queries (13.9\\%) returned no VSEARCH hit at "
+        "identity $\\geq0.5$ and query coverage $\\geq0.8$ and carry the censoring "
+        "value, against 542 under the default-settings search. All are flagged at "
+        "$\\alpha=0.05$: of the 1,251 novel queries identity flags there, 619 "
+        "(49\\%) are censored rather than scored, so about half of identity's "
+        "detections on this benchmark are queries with no alignable reference.",
         "\\item The M4 cosine column comes from the leakage-safe retraining, fitted "
         "to 11\\% fewer records and 483 fewer genera than primary M4. DEV was not "
         "reopened for that run, so the cost of the mask to model quality is "
         "unmeasured.",
         "\\item The calibration and test halves of the LSO set are drawn by "
-        "\\texttt{np.random.default\\_rng(0).permutation}. The choice of halving moves "
-        "the identity advantage between $0.069$ and $0.083$ AUROC across the "
-        "partitions we examined, without affecting its direction or significance, so "
-        "the operating points here should be read as approximate.",
+        "\\texttt{np.random.default\\_rng(0).permutation}. Across ten halvings "
+        "(seeds 0 to 9) the identity advantage ranged from $+0.063$ to $+0.075$ AUROC "
+        "and every genus-clustered interval excluded zero; seed 0, reported here, lies "
+        "near the low end. The operating points should therefore be read as approximate.",
         "\\item The currently deposited splitter yields 3,264 LSO queries rather than "
         "the 3,170 of the earlier novelty manuscript; the LGO count reproduces exactly. "
         "These results are therefore a paired comparison on the currently reproducible "
@@ -467,7 +469,7 @@ def tableS1():
         "\\bottomrule",
         "\\end{tabular}",
         "\\begin{tablenotes}\\footnotesize",
-        "\\item Reducing the weight to one quarter did not produce a uniformly better trade-off: ITS1 AUROC increased slightly, whereas ITS-core and ITS2 AUROC and most placement metrics decreased. The sensitivity run therefore did not motivate further DEV-set weight tuning.",
+        "\\item Reducing the weight to one quarter lowered AUROC and every placement metric at every view. The sensitivity run therefore did not motivate further DEV-set weight tuning.",
         "\\end{tablenotes}",
         "\\end{threeparttable}",
         "\\end{table}",

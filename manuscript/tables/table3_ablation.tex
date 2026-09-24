@@ -1,0 +1,38 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Development-set ablation, same-view retrieval. Novelty AUROC treats held-out genera as the positive class and $-S(q)$ as the score. The placement columns give the proportion of novel-genus queries whose nearest TRAIN\_REF neighbour belongs to the true family, order and class. Best value per column in bold.}
+\label{tab:ablation}
+\small
+\begin{tabular}{llccccc}
+\toprule
+ & & & known & \multicolumn{3}{c}{novel-genus placement} \\
+\cmidrule(l){5-7}
+model & view & AUROC & genus NN & family & order & class \\
+\midrule
+M0 & ITS-core & 0.681 & 49.1\% & 32.5\% & 57.1\% & 82.9\% \\
+ & ITS1 & 0.676 & 45.6\% & 28.2\% & 50.8\% & 75.1\% \\
+ & ITS2 & 0.684 & 47.4\% & 24.3\% & 48.0\% & 76.5\% \\
+\addlinespace
+M1 & ITS-core & 0.748 & 59.2\% & 34.0\% & 56.8\% & 85.7\% \\
+ & ITS1 & 0.732 & 54.6\% & 29.2\% & 51.0\% & 80.9\% \\
+ & ITS2 & 0.710 & 51.7\% & 30.0\% & 54.0\% & 83.4\% \\
+\addlinespace
+M2 & ITS-core & 0.752 & 63.3\% & 35.8\% & 60.8\% & 89.3\% \\
+ & ITS1 & 0.740 & 56.9\% & 32.7\% & 56.9\% & 84.2\% \\
+ & ITS2 & 0.740 & 57.1\% & 31.5\% & 56.9\% & 83.8\% \\
+\addlinespace
+M3 & ITS-core & 0.743 & 64.8\% & 52.4\% & 78.7\% & 93.9\% \\
+ & ITS1 & 0.733 & 57.6\% & 38.7\% & 63.4\% & \textbf{86.9\%} \\
+ & ITS2 & 0.723 & 56.6\% & 38.8\% & 66.5\% & 87.1\% \\
+\addlinespace
+M4 & ITS-core & \textbf{0.777} & \textbf{69.8\%} & \textbf{57.6\%} & \textbf{80.5\%} & \textbf{94.7\%} \\
+ & ITS1 & \textbf{0.740} & \textbf{61.8\%} & \textbf{45.1\%} & \textbf{67.1\%} & 86.1\% \\
+ & ITS2 & \textbf{0.754} & \textbf{61.7\%} & \textbf{40.3\%} & \textbf{66.9\%} & \textbf{89.0\%} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item M2 denotes the primary $\lambda_{\mathrm{tax}}=1.0$ run; the reduced-weight sensitivity run is Table~\ref{tab:m2sens}.
+\item Single run per configuration (seed 17). Between-seed variability was not estimated; differences of approximately 0.01 AUROC between adjacent rungs should therefore be interpreted cautiously.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

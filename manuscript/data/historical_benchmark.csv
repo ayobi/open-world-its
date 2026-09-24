@@ -1,0 +1,9 @@
+metric,identity,m4_cosine
+AUROC,0.7679,0.7027
+Novel detection @ alpha=0.01,0.149,0.0239
+Novel detection @ alpha=0.05,0.2815,0.1116
+Novel detection @ alpha=0.10,0.3852,0.2088
+Novel detection @ alpha=0.20,0.5396,0.4098
+False novelty @ alpha=0.05,0.0435,0.0392
+LSO family recovery,0.9142,0.7218
+LGO family recovery,0.5257,0.2817

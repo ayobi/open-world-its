@@ -73,6 +73,9 @@ THREADS=${THREADS:-32}
 # Fallback if the exhaustive run is too slow: export ACCEPTS=50 REJECTS=500
 ACCEPTS=${ACCEPTS:-0}
 REJECTS=${REJECTS:-0}
+# The reported results use a query-coverage requirement of 0.8 (Section 2.4).
+# QUERY_COV=0 disables it and reproduces the unfiltered exhaustive search.
+QUERY_COV=${QUERY_COV:-0.8}
 # Uncomment if your FASTA headers contain spaces and your manifest IDs do too.
 # NOTRUNC="--notrunclabels"
 NOTRUNC=${NOTRUNC:-}
@@ -140,6 +143,7 @@ PROV="$OUT/provenance.txt"
   echo "vsearch:   $VSEARCH_VERSION"
   echo "id floor:  $ID_FLOOR"
   echo "maxaccepts: $ACCEPTS   maxrejects: $REJECTS   (0 = unlimited)"
+  echo "query_cov: $QUERY_COV"
   echo "strand:    $STRAND     threads: $THREADS"
   echo "notrunclabels: ${NOTRUNC:-<not set>}"
   echo
@@ -154,7 +158,7 @@ if [[ "$PROBE" -gt 0 ]]; then
   echo "timing probe: $PROBE queries from $label against $(basename "$db")"
   start=$(date +%s)
   "$VSEARCH" --usearch_global "$sub" --db "$db" --id "$ID_FLOOR" \
-          --maxaccepts "$ACCEPTS" --maxrejects "$REJECTS" --top_hits_only \
+          --maxaccepts "$ACCEPTS" --maxrejects "$REJECTS" --query_cov "$QUERY_COV" --top_hits_only \
           --strand "$STRAND" --threads "$THREADS" $NOTRUNC \
           --userout "$OUT/probe.tsv" --userfields query+target+id \
           --quiet 2>/dev/null
@@ -180,7 +184,7 @@ for job in "${JOBS[@]}"; do
   q=${q/#\~/$HOME}; db=${db/#\~/$HOME}
   tsv="$OUT/${label}.exhaustive.tsv"
   cmd=("$VSEARCH" --usearch_global "$q" --db "$db" --id "$ID_FLOOR"
-       --maxaccepts "$ACCEPTS" --maxrejects "$REJECTS" --top_hits_only
+       --maxaccepts "$ACCEPTS" --maxrejects "$REJECTS" --query_cov "$QUERY_COV" --top_hits_only
        --strand "$STRAND" --threads "$THREADS"
        --userout "$tsv" --userfields query+target+id
        --log "$OUT/${label}.vsearch.log")

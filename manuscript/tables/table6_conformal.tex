@@ -1,0 +1,33 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Conformal operating points on untouched TEST data. False novelty is the fraction of TEST\_KNOWN flagged as novel; detection is the fraction of TEST\_NOVEL flagged.}
+\label{tab:conformal}
+\small
+\begin{tabular}{llcccc}
+\toprule
+ & & false novelty & \multicolumn{2}{c}{detection (TEST\_NOVEL)} & \\
+\cmidrule(lr){4-5}
+view & $\alpha$ & TEST\_KNOWN & per query & per genus & novel genera \\
+\midrule
+ITS-core & 0.01 & 0.7\% & 0.7\% & 2.2\% & 183 \\
+ & 0.05 & 3.6\% & 6.0\% & 15.0\% & 183 \\
+ & 0.10 & 8.2\% & 17.6\% & 30.5\% & 183 \\
+ & 0.20 & 17.8\% & 43.7\% & 53.2\% & 183 \\
+\addlinespace
+ITS1 & 0.01 & 0.5\% & 0.9\% & 3.9\% & 184 \\
+ & 0.05 & 5.1\% & 7.0\% & 17.9\% & 184 \\
+ & 0.10 & 9.8\% & 14.9\% & 28.8\% & 184 \\
+ & 0.20 & 18.3\% & 33.2\% & 44.6\% & 184 \\
+\addlinespace
+ITS2 & 0.01 & 0.7\% & 2.2\% & 3.4\% & 183 \\
+ & 0.05 & 4.7\% & 11.2\% & 14.3\% & 183 \\
+ & 0.10 & 8.8\% & 22.5\% & 25.1\% & 183 \\
+ & 0.20 & 17.4\% & 44.6\% & 46.4\% & 183 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Under exchangeability, split conformal controls the marginal false-novelty probability for a future known query. The empirical fraction on a finite TEST\_KNOWN sample may lie above or below the nominal $\alpha$.
+\item \emph{Per query} weights every novel sequence equally; \emph{per genus} averages the detection rate within each novel genus first, so that genera represented by many sequences do not dominate.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

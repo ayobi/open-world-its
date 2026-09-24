@@ -1,0 +1,21 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Dependence of M4 embeddings on inference batching, measured as the change in each query's maximum cosine to TRAIN\_REF. Same hash-verified checkpoint, same sequences, same device.}
+\label{tab:padding}
+\small
+\begin{tabular}{lccc}
+\toprule
+comparison & mean $|\Delta|$ & max $|\Delta|$ & signed mean \\
+\midrule
+sealed evaluator vs second scoring script (all ITS-core) & 0.0054 & 0.115 & --- \\
+batch 64 vs batch 256 (TEST\_KNOWN ITS-core) & 0.0045 & 0.080 & --- \\
+batch 1 vs batch 64 (TEST\_KNOWN ITS-core) & 0.0220 & 0.146 & $-0.0110$ \\
+batch 1 vs batch 256 (TEST\_KNOWN ITS-core) & 0.0226 & 0.151 & --- \\
+sealed evaluator vs batch 1 (TEST\_KNOWN ITS-core) & 0.0226 & --- & $-0.0104$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Batches of 64 and 256 are both heavily padded and differ little from each other; both differ from unpadded batch-1 inference by about five times as much. Between unpadded and padded scoring, 35.2\% of TEST\_KNOWN ITS-core queries changed their nearest reference and 16.6\% changed its genus. The magnitude of the shift correlates only weakly with sequence length (Spearman $\rho=-0.11$).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

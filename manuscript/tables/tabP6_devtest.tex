@@ -1,0 +1,26 @@
+\begin{table}[htbp]\centering
+\begin{threeparttable}
+\caption{Development-to-TEST movement separated into partition composition and selection. Identity is parameter-free and nothing was selected on it, so its gap estimates composition alone. Same-view retrieval throughout.}
+\label{tab:devtest}
+\small
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{3}{c}{identity AUROC} & \multicolumn{3}{c}{M4 AUROC} & residual & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+view & DEV & TEST & gap & DEV & TEST & gap & (M4 $-$ identity) & \\
+\midrule
+ITS-core & 0.809 & 0.734 & $+0.075$ & 0.777 & 0.756 & $+0.021$ & $-0.054$ & \\
+ITS1 & 0.806 & 0.700 & $+0.107$ & 0.740 & 0.699 & $+0.041$ & $-0.066$ & \\
+ITS2 & 0.778 & 0.735 & $+0.044$ & 0.754 & 0.740 & $+0.014$ & $-0.029$ & \\
+\addlinespace
+\multicolumn{9}{l}{\emph{Novel-family placement, DEV minus TEST}} \\
+ITS-core & \multicolumn{8}{l}{identity $-8.8$ pp; M4 $-7.2$ pp} \\
+ITS1 & \multicolumn{8}{l}{identity $-10.8$ pp; M4 $-9.2$ pp} \\
+ITS2 & \multicolumn{8}{l}{identity $-10.7$ pp; M4 $-13.4$ pp} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Both scores use corrected inference throughout: exact-length batching for M4 and exhaustive, coverage-filtered search for identity. No view shows a positive residual.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
